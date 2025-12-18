@@ -1,7 +1,0 @@
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/install/strip.dir
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/install/local.dir
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/install.dir
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/list_install_components.dir
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/rebuild_cache.dir
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/edit_cache.dir
-/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/motion_detector.dir
