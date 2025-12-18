@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/motion_detector.dir/include/frame_buffer.cpp.o"
+  "CMakeFiles/motion_detector.dir/include/motion_consumer.cpp.o"
   "CMakeFiles/motion_detector.dir/include/motion_detector.cpp.o"
   "CMakeFiles/motion_detector.dir/include/video_capture.cpp.o"
   "CMakeFiles/motion_detector.dir/src/main.cpp.o"

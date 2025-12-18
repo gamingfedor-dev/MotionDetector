@@ -1,6 +1,7 @@
 #include "frame_buffer.hpp"
 #include "video_capture.hpp"
 #include "motion_detector.hpp"
+#include "motion_consumer.hpp"
 #include <iostream>
 #include <csignal>
 
@@ -20,32 +21,28 @@ int main(int argc, char** argv) {
     FrameBuffer buffer(30);
     VideoCapture capture(source, buffer);
     MotionDetector detector;
+    MotionConsumer consumer(buffer, detector);
     
     if (!capture.start()) {
         std::cerr << "Failed to start capture" << std::endl;
         return 1;
     }
     
+    consumer.start();
     cv::namedWindow("Motion Detector", cv::WINDOW_AUTOSIZE);
-    
+
     while (g_running) {
-        TimestampedFrame tf;
-        if (!buffer.pop(tf, 100)) continue;
+        cv::Mat viz;
+        MotionEvent event;
         
-        auto event = detector.process(tf.frame, tf.frame_id, tf.timestamp_ms);
+        if (consumer.getLatestVisualizationFrame(viz, event)) {
+            cv::imshow("Motion Detector", viz);
+        }
         
-        cv::Mat viz = detector.getVisualization();
-        char stats[128];
-        snprintf(stats, sizeof(stats),
-            "Motion: %.2f%% | Objects: %d | Frame: %lu",
-            event.motion_score, event.contour_count, tf.frame_id);
-        cv::putText(viz, stats, cv::Point(10, 30),
-            cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 2);
-        
-        cv::imshow("Motion Detector", viz);
         if (cv::waitKey(1) == 'q') break;
     }
     
+    consumer.stop();
     capture.stop();
     detector.exportCSV(output);
     std::cout << "Data exported to " << output << std::endl;

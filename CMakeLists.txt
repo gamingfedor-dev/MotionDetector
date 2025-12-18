@@ -16,6 +16,7 @@ add_executable(motion_detector
     include/frame_buffer.cpp
     include/motion_detector.cpp
     include/video_capture.cpp
+    include/motion_consumer.cpp
 )
 
 

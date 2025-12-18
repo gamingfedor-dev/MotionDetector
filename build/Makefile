@@ -196,6 +196,33 @@ include/frame_buffer.cpp.s:
 	$(MAKE) -f CMakeFiles/motion_detector.dir/build.make CMakeFiles/motion_detector.dir/include/frame_buffer.cpp.s
 .PHONY : include/frame_buffer.cpp.s
 
+include/motion_consumer.o: include/motion_consumer.cpp.o
+
+.PHONY : include/motion_consumer.o
+
+# target to build an object file
+include/motion_consumer.cpp.o:
+	$(MAKE) -f CMakeFiles/motion_detector.dir/build.make CMakeFiles/motion_detector.dir/include/motion_consumer.cpp.o
+.PHONY : include/motion_consumer.cpp.o
+
+include/motion_consumer.i: include/motion_consumer.cpp.i
+
+.PHONY : include/motion_consumer.i
+
+# target to preprocess a source file
+include/motion_consumer.cpp.i:
+	$(MAKE) -f CMakeFiles/motion_detector.dir/build.make CMakeFiles/motion_detector.dir/include/motion_consumer.cpp.i
+.PHONY : include/motion_consumer.cpp.i
+
+include/motion_consumer.s: include/motion_consumer.cpp.s
+
+.PHONY : include/motion_consumer.s
+
+# target to generate assembly for a file
+include/motion_consumer.cpp.s:
+	$(MAKE) -f CMakeFiles/motion_detector.dir/build.make CMakeFiles/motion_detector.dir/include/motion_consumer.cpp.s
+.PHONY : include/motion_consumer.cpp.s
+
 include/motion_detector.o: include/motion_detector.cpp.o
 
 .PHONY : include/motion_detector.o
@@ -293,6 +320,9 @@ help:
 	@echo "... include/frame_buffer.o"
 	@echo "... include/frame_buffer.i"
 	@echo "... include/frame_buffer.s"
+	@echo "... include/motion_consumer.o"
+	@echo "... include/motion_consumer.i"
+	@echo "... include/motion_consumer.s"
 	@echo "... include/motion_detector.o"
 	@echo "... include/motion_detector.i"
 	@echo "... include/motion_detector.s"

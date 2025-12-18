@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/frame_buffer.hpp
+/home/gamin/CppLearning/MotionDetector/include/frame_buffer.hpp
 opencv2/opencv.hpp
 -
 queue
@@ -18,31 +18,21 @@ condition_variable
 atomic
 -
 
-../include/motion_detector.hpp
-opencv2/opencv.hpp
--
-vector
--
-fstream
--
+/home/gamin/CppLearning/MotionDetector/include/motion_consumer.cpp
+motion_consumer.hpp
+/home/gamin/CppLearning/MotionDetector/include/motion_consumer.hpp
 
-../include/video_capture.hpp
+/home/gamin/CppLearning/MotionDetector/include/motion_consumer.hpp
+motion_detector.hpp
+/home/gamin/CppLearning/MotionDetector/include/motion_detector.hpp
 opencv2/opencv.hpp
--
-string
 -
 thread
 -
 atomic
 -
 frame_buffer.hpp
-../include/frame_buffer.hpp
-
-/home/gamin/CppLearning/MotionDetector/include/motion_detector.cpp
-motion_detector.hpp
-/home/gamin/CppLearning/MotionDetector/include/motion_detector.hpp
-algorithm
--
+/home/gamin/CppLearning/MotionDetector/include/frame_buffer.hpp
 
 /home/gamin/CppLearning/MotionDetector/include/motion_detector.hpp
 opencv2/opencv.hpp
@@ -50,18 +40,6 @@ opencv2/opencv.hpp
 vector
 -
 fstream
--
-
-/home/gamin/CppLearning/MotionDetector/src/main.cpp
-frame_buffer.hpp
-/home/gamin/CppLearning/MotionDetector/src/frame_buffer.hpp
-video_capture.hpp
-/home/gamin/CppLearning/MotionDetector/src/video_capture.hpp
-motion_detector.hpp
-/home/gamin/CppLearning/MotionDetector/src/motion_detector.hpp
-iostream
--
-csignal
 -
 
 /usr/include/opencv4/opencv2/calib3d.hpp

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gamin/CppLearning/MotionDetector/include/frame_buffer.cpp" "/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/motion_detector.dir/include/frame_buffer.cpp.o"
+  "/home/gamin/CppLearning/MotionDetector/include/motion_consumer.cpp" "/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/motion_detector.dir/include/motion_consumer.cpp.o"
   "/home/gamin/CppLearning/MotionDetector/include/motion_detector.cpp" "/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/motion_detector.dir/include/motion_detector.cpp.o"
   "/home/gamin/CppLearning/MotionDetector/include/video_capture.cpp" "/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/motion_detector.dir/include/video_capture.cpp.o"
   "/home/gamin/CppLearning/MotionDetector/src/main.cpp" "/home/gamin/CppLearning/MotionDetector/build/CMakeFiles/motion_detector.dir/src/main.cpp.o"
