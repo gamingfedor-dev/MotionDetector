@@ -1,0 +1,16 @@
+============================================================
+MOTION DETECTION ANALYSIS REPORT
+============================================================
+
+SUMMARY STATISTICS
+----------------------------------------
+Total Frames Analyzed: 508
+Duration: 9.90 seconds
+Mean Motion Score: 22.5332%
+Standard Deviation: 16.7190%
+Median: 25.6986%
+Maximum: 51.2709%
+95th Percentile: 46.2193%
+Skewness: -0.0262
+Kurtosis: -1.5809
+Significant Motion Events (>2σ): 0
