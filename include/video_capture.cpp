@@ -51,6 +51,11 @@ void VideoCapture::captureLoop() {
                 cap_.open(source_);
                 continue;
             }
+
+            if (source_type_ == SourceType::FILE) {
+                cap_.set(cv::CAP_PROP_POS_FRAMES, 0);  
+                continue;
+            }
             break;
         }
         
