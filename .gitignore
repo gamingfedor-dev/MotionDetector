@@ -1,4 +1,4 @@
 build
 analysis
 data
-output.csv
+./output.csv

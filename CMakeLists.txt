@@ -20,6 +20,8 @@ add_executable(motion_detector
     src/core/motion_detector.cpp
     src/core/video_capture.cpp
     src/core/motion_consumer.cpp
+    src/gui/main_window.cpp
+    include/gui/main_window.hpp
 )
 
 
@@ -28,6 +30,7 @@ target_include_directories(motion_detector PRIVATE
     include/core
     include/queues
     include/models
+    include/gui
 )
 
 target_link_libraries(motion_detector PRIVATE 
