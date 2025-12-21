@@ -2,8 +2,8 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <fstream>
-#include "../models/roi_config.hpp"
-#include "../models/motion_event.hpp"
+#include "roi_config.hpp"
+#include "motion_event.hpp"
 
 class MotionDetector {
 public:

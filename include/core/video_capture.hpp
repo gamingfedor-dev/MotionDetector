@@ -3,7 +3,7 @@
 #include <string>
 #include <thread>
 #include <atomic>
-#include "../queues/frame_queue.hpp"
+#include "frame_queue.hpp"
 
 class VideoCapture {
 public:

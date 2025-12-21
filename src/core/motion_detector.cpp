@@ -1,6 +1,6 @@
-#include "core/motion_detector.hpp"
+#include "motion_detector.hpp"
 #include <algorithm>
-#include "models/motion_event.hpp"
+#include "motion_event.hpp"
 
 MotionDetector::MotionDetector(): MotionDetector(Config{}) {}
 MotionDetector::MotionDetector(const Config& cfg) : config_(cfg) {}

@@ -1,4 +1,4 @@
-#include "core/video_capture.hpp"
+#include "video_capture.hpp"
 #include <chrono>
 #include <iostream>
 

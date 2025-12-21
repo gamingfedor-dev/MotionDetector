@@ -4,7 +4,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <atomic>
-#include "queues/thread_queue.hpp"
+#include "thread_queue.hpp"
 
 struct TimestampedFrame {
   cv::Mat frame;

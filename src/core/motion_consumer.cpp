@@ -1,4 +1,4 @@
-#include "core/motion_consumer.hpp"
+#include "motion_consumer.hpp"
 
 MotionConsumer::MotionConsumer(FrameQueue& buffer,
                                ThreadQueue<MotionDetectorConfig>& config_queue,

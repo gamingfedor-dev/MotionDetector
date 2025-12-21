@@ -5,11 +5,14 @@ project(MotionDetector VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
 
 find_package(OpenCV REQUIRED)
 find_package(Threads REQUIRED)
-
+find_package(Qt5 REQUIRED COMPONENTS Widgets Core Gui)
 
 add_executable(motion_detector
     src/main.cpp
@@ -20,8 +23,20 @@ add_executable(motion_detector
 )
 
 
-target_include_directories(motion_detector PRIVATE include)
-target_link_libraries(motion_detector PRIVATE ${OpenCV_LIBS} Threads::Threads)
+target_include_directories(motion_detector PRIVATE 
+    include
+    include/core
+    include/queues
+    include/models
+)
+
+target_link_libraries(motion_detector PRIVATE 
+    ${OpenCV_LIBS} 
+    Threads::Threads
+    Qt5::Widgets
+    Qt5::Core
+    Qt5::Gui
+)
 
 
 # Debug build with sanitizers

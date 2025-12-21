@@ -3,10 +3,10 @@
 #include <opencv2/opencv.hpp>
 #include <thread>
 #include <atomic>
-#include "../queues/frame_queue.hpp"
-#include "../queues/thread_queue.hpp"
-#include "../models/mdcfg.hpp"
-#include "../models/detection_result.hpp"
+#include "frame_queue.hpp"
+#include "thread_queue.hpp"
+#include "mdcfg.hpp"
+#include "detection_result.hpp"
 
 class MotionConsumer {
 public:
