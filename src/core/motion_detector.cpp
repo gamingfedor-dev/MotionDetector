@@ -1,5 +1,6 @@
-#include "motion_detector.hpp"
+#include "core/motion_detector.hpp"
 #include <algorithm>
+#include "models/motion_event.hpp"
 
 MotionDetector::MotionDetector(): MotionDetector(Config{}) {}
 MotionDetector::MotionDetector(const Config& cfg) : config_(cfg) {}
@@ -82,6 +83,24 @@ MotionEvent MotionDetector::process(const cv::Mat& frame, uint64_t id, int64_t t
     return event;
 }
 cv::Mat MotionDetector::getVisualization() const { return last_viz_; }
+
+void MotionDetector::setConfig(const Config& cfg) {
+    bool roi_changed = (config_.roi.center_x != cfg.roi.center_x ||
+                        config_.roi.center_y != cfg.roi.center_y ||
+                        config_.roi.width_ratio != cfg.roi.width_ratio ||
+                        config_.roi.height_ratio != cfg.roi.height_ratio);
+    
+    config_ = cfg;
+    
+    if (roi_changed) {
+        resetBackground();
+    }
+}
+
+void MotionDetector::resetBackground() {
+    initialized_ = false;
+    background_.release();
+}
 
 void MotionDetector::exportCSV(const std::string& path) const {
     std::ofstream file(path);

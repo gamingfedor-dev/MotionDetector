@@ -3,13 +3,13 @@
 #include <string>
 #include <thread>
 #include <atomic>
-#include "frame_buffer.hpp"
+#include "../queues/frame_queue.hpp"
 
 class VideoCapture {
 public:
     enum class SourceType { CAMERA, FILE, RTSP, HTTP };
     
-    VideoCapture(const std::string& source, FrameBuffer& buffer);
+    VideoCapture(const std::string& source, FrameQueue& buffer);
     ~VideoCapture();
     
     bool start();
@@ -22,7 +22,7 @@ private:
     
     std::string source_;
     SourceType source_type_;
-    FrameBuffer& buffer_;
+    FrameQueue& buffer_;
     cv::VideoCapture cap_;
     std::thread capture_thread_;
     std::atomic<bool> running_{false};

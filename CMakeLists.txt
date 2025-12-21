@@ -13,10 +13,10 @@ find_package(Threads REQUIRED)
 
 add_executable(motion_detector
     src/main.cpp
-    include/frame_buffer.cpp
-    include/motion_detector.cpp
-    include/video_capture.cpp
-    include/motion_consumer.cpp
+    src/queues/frame_queue.cpp
+    src/core/motion_detector.cpp
+    src/core/video_capture.cpp
+    src/core/motion_consumer.cpp
 )
 
 

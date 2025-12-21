@@ -4,6 +4,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <atomic>
+#include "queues/thread_queue.hpp"
 
 struct TimestampedFrame {
   cv::Mat frame;
@@ -11,20 +12,17 @@ struct TimestampedFrame {
   uint64_t frame_id;
 };
 
-class FrameBuffer {
+class FrameQueue: public ThreadQueue<TimestampedFrame> {
   public:
-    explicit FrameBuffer(size_t max_size = 30);
-    bool push(TimestampedFrame&& frame);
+    explicit FrameQueue(size_t max_size = 30);
+    bool push(TimestampedFrame&& frame) override;
     bool pop(TimestampedFrame& frame, int timeout_ms = 100);
     void shutdown();
     size_t size() const;
 
   private:
-    std::queue<TimestampedFrame> buffer_;
-    mutable std::mutex mutex_;
     std::condition_variable cv_not_empty_;
     std::condition_variable cv_not_full_;
     size_t max_size_;
     std::atomic<bool> shutdown_{false};
-
 };

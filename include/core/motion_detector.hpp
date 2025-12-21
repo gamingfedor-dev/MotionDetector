@@ -2,16 +2,8 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <fstream>
-#include "roi_config.hpp"
-
-struct MotionEvent {
-    uint64_t frame_id;
-    int64_t timestamp_ms;
-    double motion_score;
-    int contour_count;
-    cv::Rect largest_bbox;
-    cv::Rect roi_used;
-};
+#include "../models/roi_config.hpp"
+#include "../models/motion_event.hpp"
 
 class MotionDetector {
 public:
@@ -28,6 +20,9 @@ public:
 
     void setROI(const ROIConfig& roi);
     ROIConfig getROI() const;
+
+    void resetBackground();
+    void setConfig(const Config& cfg);
 
     MotionEvent process(const cv::Mat& frame, uint64_t id, int64_t ts);
     cv::Mat getVisualization() const;
