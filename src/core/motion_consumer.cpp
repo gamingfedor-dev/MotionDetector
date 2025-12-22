@@ -57,10 +57,7 @@ void MotionConsumer::processLoop() {
             event.motion_score, event.contour_count, tf.frame_id);
         cv::putText(viz, stats, cv::Point(10, 30),
             cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 2);
-        
-        /**
-         * 
-         */
+
         result_queue_.push(DetectionResult{std::move(viz), event});
     }
 }

@@ -54,19 +54,8 @@ MotionEvent MotionDetector::process(const cv::Mat& frame, uint64_t id, int64_t t
         event.contour_count++;
         total_area += area;
 
-        // cv::Rect bbox = cv::boundingRect(contour);
-        // bbox.x += roi_rect.x;
-        // bbox.y += roi_rect.y;
-        // cv::rectangle(last_viz_, bbox, cv::Scalar(0, 255, 0), 2);
-
-        std::vector<cv::Point> adjusted_contour = contour;
-
-        for (auto& point : adjusted_contour) {
-            point.x += roi_rect.x;
-            point.y += roi_rect.y;
-        }
-        
-        cv::polylines(last_viz_, {adjusted_contour}, 0, cv::Scalar(0, 255, 0), 2);
+        drawContourShape(last_viz_, contour, roi_rect, cv::Scalar(0, 255, 0), 2);
+        //drawBoundingBox(last_viz_, contour, roi_rect, cv::Scalar(0, 255, 0), 2);
         
         
         if (area > max_area) {
@@ -120,4 +109,22 @@ void MotionDetector::exportCSV(const std::string& path) const {
              << e.roi_used.x << "," << e.roi_used.y << ","
              << e.roi_used.width << "," << e.roi_used.height << "\n";
     }
+}
+
+void MotionDetector::drawContourShape(cv::Mat& image, const std::vector<cv::Point>& contour,
+                                      const cv::Rect& roi_rect, const cv::Scalar& color, int thickness) {
+    std::vector<cv::Point> adjusted = contour;
+    for (auto& pt : adjusted) {
+        pt.x += roi_rect.x;
+        pt.y += roi_rect.y;
+    }
+    cv::polylines(image, {adjusted}, true, color, thickness);
+}
+
+void MotionDetector::drawBoundingBox(cv::Mat& image, const std::vector<cv::Point>& contour, const cv::Rect& roi_rect,
+                                     const cv::Scalar& color, int thickness) {
+    cv::Rect bbox = cv::boundingRect(contour);
+    bbox.x += roi_rect.x;
+    bbox.y += roi_rect.y;
+    cv::rectangle(image, bbox, color, thickness);
 }

@@ -34,5 +34,10 @@ private:
     cv::Mat last_viz_;
     std::vector<MotionEvent> history_;
     bool initialized_ = false;
+    void drawContourShape(cv::Mat& image, const std::vector<cv::Point>& contour, 
+                                 const cv::Rect& roi_rect, const cv::Scalar& color, int thickness);
+
+    void drawBoundingBox(cv::Mat& image, const std::vector<cv::Point>& contour, 
+                    const cv::Rect& roi_rect, const cv::Scalar& color, int thickness);
 };
 
