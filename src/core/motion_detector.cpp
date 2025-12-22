@@ -54,15 +54,24 @@ MotionEvent MotionDetector::process(const cv::Mat& frame, uint64_t id, int64_t t
         event.contour_count++;
         total_area += area;
 
-        cv::Rect bbox = cv::boundingRect(contour);
-        bbox.x += roi_rect.x;
-        bbox.y += roi_rect.y;
+        // cv::Rect bbox = cv::boundingRect(contour);
+        // bbox.x += roi_rect.x;
+        // bbox.y += roi_rect.y;
+        // cv::rectangle(last_viz_, bbox, cv::Scalar(0, 255, 0), 2);
+
+        std::vector<cv::Point> adjusted_contour = contour;
+
+        for (auto& point : adjusted_contour) {
+            point.x += roi_rect.x;
+            point.y += roi_rect.y;
+        }
         
-        cv::rectangle(last_viz_, bbox, cv::Scalar(0, 255, 0), 2);
+        cv::polylines(last_viz_, {adjusted_contour}, 0, cv::Scalar(0, 255, 0), 2);
+        
         
         if (area > max_area) {
             max_area = area;
-            event.largest_bbox = bbox;
+            // event.largest_bbox = bbox;
         }
     }
 

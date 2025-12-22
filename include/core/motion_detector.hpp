@@ -11,7 +11,7 @@ public:
         int blur_kernel = 21;
         int threshold = 25;
         int min_contour_area = 500;
-        double learning_rate = 0.01;
+        double learning_rate = 0.05;
         ROIConfig roi;
         bool draw_roi = true;
     };
