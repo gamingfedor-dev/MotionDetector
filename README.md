@@ -1,32 +1,21 @@
-Video Capture flow:
-  VideoCapture reads video file
-        ↓
-  FrameQueue.push(frame)
-        ↓
-  MotionConsumer pops frame from FrameQueue
-        ↓
-  MotionConsumer pops config from ConfigQueue (if any new)
-        ↓
-  MotionDetector.process(frame, config)
-        ↓
-  ResultQueue.push(result)
-        ↓
-  QTimer triggers every 16ms
-        ↓
-  MainWindow::updateFrame()
-        ↓
-  ResultQueue.pop(result)
-        ↓
-  QLabel displays frame
+# Motion Detector V4.0.5
 
+## Architecture
 
+### Video Capture Flow
+1. VideoCapture reads video file
+2. FrameQueue.push(frame)
+3. MotionConsumer pops frame from FrameQueue
+4. MotionConsumer pops config from ConfigQueue (if new)
+5. MotionDetector.process(frame, config)
+6. ResultQueue.push(result)
+7. QTimer triggers every 16ms
+8. MotionComponent::updateFrame()
+9. ResultQueue.pop(result)
+10. QImage displays frame
 
-
-Message (config) transfer flow:
-  User moves slider
-        ↓
-  MainWindow::sendConfig()
-        ↓
-  ConfigQueue.push(config)
-        ↓
-  MotionConsumer picks it up on next loop iteration
+### Config Transfer Flow
+1. User moves slider
+2. MotionComponent::sendConfig()
+3. ConfigQueue.push(config)
+4. MotionConsumer picks it up on next loop iteration
