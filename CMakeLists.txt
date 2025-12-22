@@ -12,7 +12,7 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(OpenCV REQUIRED)
 find_package(Threads REQUIRED)
-find_package(Qt5 REQUIRED COMPONENTS Widgets Core Gui)
+find_package(Qt5 REQUIRED COMPONENTS Widgets Core Gui Quick Qml)
 
 add_executable(motion_detector
     src/main.cpp
@@ -20,8 +20,11 @@ add_executable(motion_detector
     src/core/motion_detector.cpp
     src/core/video_capture.cpp
     src/core/motion_consumer.cpp
-    src/gui/main_window.cpp
-    include/gui/main_window.hpp
+    src/gui/motion_component.cpp
+    src/gui/frame_image_service.cpp
+    include/gui/motion_component.hpp
+    include/gui/frame_image_service.hpp
+    resources/qml.qrc
 )
 
 
@@ -39,6 +42,8 @@ target_link_libraries(motion_detector PRIVATE
     Qt5::Widgets
     Qt5::Core
     Qt5::Gui
+    Qt5::Quick
+    Qt5::Qml
 )
 
 

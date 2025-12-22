@@ -1,0 +1,7 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>qml/Main.qml</file>
+        <file>qml/ControlSlider.qml</file>
+    </qresource>
+</RCC>
