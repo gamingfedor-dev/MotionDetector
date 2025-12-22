@@ -14,7 +14,7 @@
 9. ResultQueue.pop(result)
 10. QImage displays frame
 
-### Config Transfer Flow
+### Motion Settings/Results Transfer Flow
 1. User moves slider
 2. MotionComponent::sendConfig()
 3. ConfigQueue.push(config)
